@@ -12,6 +12,9 @@ length = 1
 segments = [snake.copy()]
 snake_dir = (0, 0)
 time, time_step = 0, 110
+food = snake.copy()
+food.center = get_random_position()
+
 screen = pg.display.set_mode([WINDOW] * 2)
 clock = pg.time.Clock()
 
@@ -30,6 +33,8 @@ while True:
         snake_dir = (TITLE_SIZE, 0)
         
   screen.fill('black')
+  #vẽ đồ ăn
+  pg.draw.rect(screen, 'red', food)
   #vẽ rắn
   [pg.draw.rect(screen, 'green', segment) for segment in segments]
   #di chuyển
