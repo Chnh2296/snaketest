@@ -19,6 +19,6 @@ while True:
     if event.type == pg.QUIT:
       exit()
   screen.fill('black')
-  [pg.draw.rect(screen, 'green', segment in segments]
+  [pg.draw.rect(screen, 'green', for segment in segments]
   pg.display.flip()
   clock.tick(60)
