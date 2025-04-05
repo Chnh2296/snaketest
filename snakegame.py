@@ -34,7 +34,7 @@ while True:
         
   screen.fill('black')
   #giới hạn và selfeating
-  self_eating = pg.Rect.collidelist(snake, segment[:-1]) != -1
+  self_eating = pg.Rect.collidelist(snake, segments[:-1]) != -1
   
   if snake.left < 0 or snake.right > WINDOW or snake.top < 0 or snake.bottom > WINDOW or self_eating:
     snake.center, food.center = get_random_position(), get_random_position()
