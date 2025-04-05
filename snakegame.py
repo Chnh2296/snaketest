@@ -17,20 +17,27 @@ food.center = get_random_position()
 
 screen = pg.display.set_mode([WINDOW] * 2)
 clock = pg.time.Clock()
+dirs = {pg.K_w: 1, pg.K_s: 1, pg.K_a: 1, pg.K_d: 1}
 
 while True:
   for event in pg.event.get():
     if event.type == pg.QUIT:
       exit()
     if event.type == pg.KEYDOWN:
-      if event.key == pg.K_w:
+      if event.key == pg.K_w and dirs[pg.K_w]: 
         snake_dir = (0, -TITLE_SIZE)
-      if event.key == pg.K_s:
+        dirs = {pg.K_w: 1, pg.K_s: 0, pg.K_a: 1, pg.K_d: 1}
+      if event.key == pg.K_s and dirs[pg.K_s]:
         snake_dir = (0, TITLE_SIZE)
-      if event. key == pg.K_a:
+        dirs = {pg.K_w: 0, pg.K_s: 1, pg.K_a: 1, pg.K_d: 1}
+      if event. key == pg.K_a and dirs[pg.K_a]:
         snake_dir = (-TITLE_SIZE, 0)
-      if event.key == pg.K_d:
+        dirs = {pg.K_w: 1, pg.K_s: 1, pg.K_a: 1, pg.K_d: 0}
+      if event.key == pg.K_d and dirs[pg.K_d]:
         snake_dir = (TITLE_SIZE, 0)
+        dirs = {pg.K_w: 1, pg.K_s: 1, pg.K_a: 0, pg.K_d: 1}
+        
+       
         
   screen.fill('black')
   #giới hạn và selfeating
